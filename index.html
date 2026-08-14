@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="te">
 <head>
@@ -1571,7 +1572,634 @@ body.dark-premium .timeline-event-card{
       *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
       .reveal,.stagger>*{opacity:1!important;transform:none!important}
     }
-  </style>
+  
+/* =========================================================
+   FINAL PREMIUM UPGRADE
+   Timeline full-screen viewer • contact form • mobile polish
+========================================================= */
+
+.contact-premium{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(200,164,93,.10),transparent 28%),
+    radial-gradient(circle at 90% 75%,rgba(120,152,189,.10),transparent 30%),
+    var(--cream);
+}
+
+.contact-orb{
+  position:absolute;
+  width:260px;height:260px;border-radius:50%;
+  filter:blur(60px);opacity:.18;pointer-events:none;
+  animation:contactFloat 12s ease-in-out infinite alternate;
+}
+.contact-orb-a{left:-100px;top:20%;background:#d8c28d}
+.contact-orb-b{right:-100px;bottom:8%;background:#aebfd5;animation-delay:-5s}
+@keyframes contactFloat{
+  from{transform:translate3d(0,0,0) scale(.92)}
+  to{transform:translate3d(35px,-25px,0) scale(1.08)}
+}
+
+.contact-premium-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:22px;
+  align-items:stretch;
+}
+
+.contact-info-premium,
+.contact-form-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(7,17,31,.09);
+  border-radius:30px;
+  padding:34px;
+  background:rgba(255,255,255,.72);
+  box-shadow:0 28px 80px rgba(25,42,66,.10);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+}
+
+.contact-info-premium::before,
+.contact-form-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),transparent 38%,rgba(200,164,93,.07));
+}
+
+.contact-card-top,
+.form-heading,
+.contact-detail-list,
+.contact-meta-row,
+.premium-contact-form{
+  position:relative;
+  z-index:1;
+}
+
+.contact-card-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:center;
+  margin-bottom:24px;
+  flex-wrap:wrap;
+}
+
+.contact-eyebrow{
+  color:var(--gold);
+  font:800 .68rem Inter,sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.contact-status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#718092;
+  font-size:.68rem;
+}
+.contact-status i{
+  width:7px;height:7px;border-radius:50%;
+  background:#5ca77b;
+  box-shadow:0 0 0 5px rgba(92,167,123,.10),0 0 16px rgba(92,167,123,.35);
+}
+
+.contact-info-premium h3,
+.form-heading h3{
+  font-family:"Noto Serif Telugu","Playfair Display",serif;
+  font-size:clamp(1.7rem,3vw,2.5rem);
+  line-height:1.25;
+  margin:0;
+}
+body.en .contact-info-premium h3,
+body.en .form-heading h3{font-family:"Playfair Display",Inter,sans-serif}
+
+.contact-role{
+  margin-top:7px;
+  color:var(--muted);
+  font-size:.88rem;
+}
+
+.contact-detail-list{
+  margin-top:25px;
+  display:grid;
+  gap:10px;
+}
+
+.contact-action{
+  display:grid;
+  grid-template-columns:44px 1fr 20px;
+  align-items:center;
+  gap:13px;
+  padding:14px 13px;
+  border:1px solid rgba(7,17,31,.08);
+  border-radius:18px;
+  background:rgba(255,255,255,.66);
+  transition:.35s var(--ease);
+}
+.contact-action:hover{
+  transform:translateY(-4px);
+  border-color:rgba(200,164,93,.38);
+  box-shadow:0 16px 38px rgba(25,42,66,.10);
+}
+.contact-action-icon{
+  width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;
+  background:rgba(200,164,93,.10);
+  color:var(--gold);
+}
+.contact-action small{
+  display:block;color:#7b8795;
+  font-size:.65rem;margin-bottom:2px;
+}
+.contact-action strong{
+  display:block;color:var(--soft-text);
+  font-size:.82rem;word-break:break-word;
+}
+.contact-arrow{color:#9aa5b2;font-size:.7rem}
+.whatsapp-action .contact-action-icon{
+  color:#168c5b;background:rgba(22,140,91,.09);
+}
+
+.contact-meta-row{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid rgba(7,17,31,.08);
+  color:#778494;
+  font-size:.72rem;
+}
+.contact-meta-row span{display:inline-flex;align-items:center;gap:7px}
+.contact-meta-row i{color:var(--gold)}
+
+.form-heading p{
+  color:var(--muted);
+  font-size:.82rem;
+  max-width:620px;
+  margin-top:9px;
+}
+
+.premium-contact-form{
+  margin-top:22px;
+  display:grid;
+  gap:14px;
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.premium-contact-form label{
+  display:grid;
+  gap:7px;
+}
+.premium-contact-form label>span{
+  font-size:.7rem;
+  font-weight:800;
+  color:#586779;
+}
+.premium-contact-form input,
+.premium-contact-form textarea{
+  width:100%;
+  border:1px solid rgba(7,17,31,.10);
+  outline:none;
+  border-radius:16px;
+  padding:13px 15px;
+  background:rgba(255,255,255,.78);
+  color:var(--soft-text);
+  font:500 .82rem "Noto Sans Telugu",Inter,sans-serif;
+  transition:.3s ease;
+  resize:vertical;
+}
+.premium-contact-form input:focus,
+.premium-contact-form textarea:focus{
+  border-color:rgba(200,164,93,.65);
+  box-shadow:0 0 0 4px rgba(200,164,93,.10);
+  transform:translateY(-1px);
+}
+.premium-contact-form input::placeholder,
+.premium-contact-form textarea::placeholder{color:#a0a9b4}
+
+.form-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:2px;
+}
+.contact-submit,.whatsapp-submit{
+  min-height:48px;
+}
+.whatsapp-submit{
+  border:1px solid rgba(22,140,91,.18);
+  background:rgba(22,140,91,.08);
+  color:#13734d;
+}
+.whatsapp-submit:hover{
+  background:#168c5b;
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+.contact-bottom-note{
+  margin-top:20px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:18px 20px;
+  border-radius:22px;
+  border:1px solid rgba(200,164,93,.16);
+  background:linear-gradient(135deg,rgba(200,164,93,.08),rgba(120,152,189,.06));
+  box-shadow:0 16px 45px rgba(25,42,66,.06);
+}
+.contact-note-mark{
+  width:44px;height:44px;flex:0 0 44px;
+  display:grid;place-items:center;border-radius:14px;
+  background:rgba(200,164,93,.12);color:var(--gold);
+}
+.contact-bottom-note strong{display:block;font-size:.86rem}
+.contact-bottom-note span{display:block;color:var(--muted);font-size:.74rem;margin-top:2px}
+
+/* Timeline photo viewer hint */
+.timeline-view-hint{
+  position:absolute;
+  left:14px;right:14px;bottom:14px;
+  z-index:5;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 13px;border-radius:999px;
+  color:#fff;
+  background:rgba(5,12,21,.64);
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(12px);
+  font:700 .62rem "Noto Sans Telugu",Inter,sans-serif;
+  letter-spacing:.03em;
+  opacity:0;
+  transform:translateY(8px);
+  transition:.35s ease;
+}
+.timeline-event-card:hover .timeline-view-hint,
+.timeline-event-card:focus-visible .timeline-view-hint{
+  opacity:1;transform:none;
+}
+.timeline-event-card:focus-visible{
+  outline:2px solid rgba(200,164,93,.72);
+  outline-offset:4px;
+}
+
+/* Full viewport cinematic image viewer */
+.lightbox.open{
+  display:grid;
+  padding:0!important;
+  background:
+    radial-gradient(circle at 50% 40%,rgba(200,164,93,.08),transparent 34%),
+    rgba(2,6,11,.97)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+.lightbox-box{
+  width:100vw!important;
+  max-width:none!important;
+  height:100vh!important;
+  max-height:none!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  display:grid;
+  grid-template-rows:1fr auto;
+}
+.lightbox-visual{
+  height:auto!important;
+  min-height:0!important;
+  background:
+    radial-gradient(circle at center,rgba(200,164,93,.07),transparent 45%),
+    transparent!important;
+  padding:50px 55px 25px!important;
+}
+.lightbox-visual img{
+  max-width:94vw!important;
+  max-height:calc(100vh - 145px)!important;
+  width:auto!important;
+  height:auto!important;
+  border-radius:12px!important;
+  box-shadow:0 35px 120px rgba(0,0,0,.62)!important;
+}
+.lightbox-info{
+  position:relative;
+  z-index:5;
+  width:min(100%,1000px);
+  margin:0 auto 20px;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:22px!important;
+  background:rgba(8,15,25,.72)!important;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  padding:14px 20px 16px!important;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.lightbox-info h3{color:#fff!important}
+.lightbox-info p{color:#b8c2ce!important}
+.close-lightbox{
+  position:fixed!important;
+  right:22px!important;
+  top:20px!important;
+  width:48px!important;height:48px!important;
+  background:rgba(7,17,31,.62)!important;
+  border-color:rgba(255,255,255,.18)!important;
+}
+.lightbox-nav{
+  z-index:10!important;
+  background:rgba(7,17,31,.62)!important;
+  backdrop-filter:blur(12px);
+}
+.lightbox-nav:hover{background:var(--gold)!important}
+.lightbox.timeline-mode .lightbox-nav{display:none!important}
+
+body.dark-premium .contact-info-premium,
+body.dark-premium .contact-form-card{
+  border-color:rgba(255,255,255,.08);
+  background:rgba(18,27,41,.72);
+  box-shadow:0 30px 90px rgba(0,0,0,.28);
+}
+body.dark-premium .contact-action{
+  border-color:rgba(255,255,255,.08);
+  background:rgba(255,255,255,.035);
+}
+body.dark-premium .contact-action strong,
+body.dark-premium .premium-contact-form input,
+body.dark-premium .premium-contact-form textarea{color:#edf1f6}
+body.dark-premium .premium-contact-form input,
+body.dark-premium .premium-contact-form textarea{
+  border-color:rgba(255,255,255,.09);
+  background:rgba(7,17,31,.40);
+}
+body.dark-premium .premium-contact-form label>span{color:#aeb8c5}
+body.dark-premium .contact-meta-row{border-color:rgba(255,255,255,.08)}
+body.dark-premium .contact-bottom-note{border-color:rgba(255,255,255,.08)}
+
+@media(max-width:800px){
+  .contact-premium-grid{grid-template-columns:1fr}
+  .contact-info-premium,.contact-form-card{padding:25px;border-radius:24px}
+  .form-row{grid-template-columns:1fr}
+  .lightbox-visual{padding:58px 15px 15px!important}
+  .lightbox-visual img{max-width:96vw!important;max-height:calc(100vh - 170px)!important}
+  .lightbox-info{
+    width:calc(100% - 20px);
+    margin:0 auto 10px;
+    border-radius:18px!important;
+    padding:12px 14px!important;
+  }
+  .lightbox-info h3{font-size:1rem!important}
+  .lightbox-info p{font-size:.68rem!important;line-height:1.5}
+  .close-lightbox{right:12px!important;top:12px!important;width:42px!important;height:42px!important}
+  .lightbox-nav{width:40px!important;height:40px!important}
+  .timeline-view-hint{opacity:1;transform:none;font-size:.55rem}
+}
+
+@media(max-width:520px){
+  .contact-card-top{align-items:flex-start}
+  .contact-action{grid-template-columns:40px 1fr 16px;padding:12px}
+  .contact-action-icon{width:40px;height:40px}
+  .contact-action strong{font-size:.74rem}
+  .form-actions{display:grid;grid-template-columns:1fr}
+  .form-actions .btn{width:100%}
+  .contact-bottom-note{align-items:flex-start}
+}
+
+
+/* =========================================================
+   V2 POLISH
+   Light navbar visibility • animated contact form • gallery motion
+========================================================= */
+
+/* ----- LIGHT THEME NAVBAR FIX ----- */
+body:not(.dark-premium) .navbar{
+  background:rgba(255,255,255,.88)!important;
+  border-bottom:1px solid rgba(23,34,52,.08)!important;
+  box-shadow:0 8px 30px rgba(25,42,66,.06);
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+body:not(.dark-premium) .navbar .brand,
+body:not(.dark-premium) .navbar .nav-links a,
+body:not(.dark-premium) .navbar .menu-btn,
+body:not(.dark-premium) .navbar .lang button{
+  color:#172234!important;
+}
+body:not(.dark-premium) .navbar .brand small{
+  color:#718092!important;
+}
+body:not(.dark-premium) .navbar .nav-links a:hover,
+body:not(.dark-premium) .navbar .nav-links a.active{
+  color:#9b783c!important;
+}
+body:not(.dark-premium) .navbar .lang{
+  background:rgba(23,34,52,.045)!important;
+  border-color:rgba(23,34,52,.08)!important;
+}
+body:not(.dark-premium) .navbar .lang button.active{
+  background:#172234!important;
+  color:#fff!important;
+}
+body:not(.dark-premium) .navbar.scrolled{
+  background:rgba(255,255,255,.96)!important;
+  box-shadow:0 12px 38px rgba(25,42,66,.10);
+}
+body.dark-premium .navbar{
+  background:rgba(7,17,31,.82)!important;
+  border-bottom-color:rgba(255,255,255,.08)!important;
+}
+
+/* mobile menu in light theme */
+@media(max-width:1100px){
+  body:not(.dark-premium) .navbar.menu-open .nav-links{
+    background:rgba(255,255,255,.97)!important;
+    border-color:rgba(23,34,52,.10)!important;
+    box-shadow:0 25px 70px rgba(25,42,66,.14);
+  }
+  body:not(.dark-premium) .navbar.menu-open .nav-links a{
+    color:#172234!important;
+  }
+}
+
+/* ----- CONTACT FORM CINEMATIC ANIMATION ----- */
+.contact-form-card{
+  isolation:isolate;
+}
+.contact-form-card::after{
+  content:"";
+  position:absolute;
+  width:240px;height:240px;
+  right:-100px;top:-120px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,164,93,.16),transparent 68%);
+  pointer-events:none;
+  z-index:0;
+  animation:formOrb 8s ease-in-out infinite alternate;
+}
+@keyframes formOrb{
+  0%{transform:translate(0,0) scale(.85)}
+  100%{transform:translate(-45px,65px) scale(1.2)}
+}
+.form-heading{
+  animation:formHeadingIn .8s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes formHeadingIn{
+  from{opacity:0;transform:translateY(20px);filter:blur(7px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+.premium-contact-form label{
+  animation:formFieldIn .7s cubic-bezier(.16,1,.3,1) both;
+}
+.premium-contact-form label:nth-child(1){animation-delay:.08s}
+.premium-contact-form label:nth-child(2){animation-delay:.16s}
+.premium-contact-form label:nth-child(3){animation-delay:.24s}
+.premium-contact-form label:nth-child(4){animation-delay:.32s}
+@keyframes formFieldIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
+}
+.premium-contact-form input,
+.premium-contact-form textarea{
+  position:relative;
+}
+.premium-contact-form input:hover,
+.premium-contact-form textarea:hover{
+  transform:translateY(-2px);
+  border-color:rgba(200,164,93,.32);
+  box-shadow:0 10px 30px rgba(25,42,66,.06);
+}
+.premium-contact-form input:focus,
+.premium-contact-form textarea:focus{
+  animation:fieldGlow 1.8s ease-in-out infinite alternate;
+}
+@keyframes fieldGlow{
+  from{box-shadow:0 0 0 4px rgba(200,164,93,.08),0 10px 30px rgba(25,42,66,.04)}
+  to{box-shadow:0 0 0 5px rgba(200,164,93,.15),0 14px 38px rgba(25,42,66,.08)}
+}
+.contact-submit{
+  position:relative;
+  overflow:hidden;
+}
+.contact-submit::before{
+  content:"";
+  position:absolute;
+  top:-80%;left:-35%;
+  width:35%;height:260%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.34),transparent);
+  transform:rotate(20deg) translateX(-180%);
+  transition:transform .8s ease;
+}
+.contact-submit:hover::before{
+  transform:rotate(20deg) translateX(500%);
+}
+.contact-submit i{
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.contact-submit:hover i{
+  transform:translate(4px,-4px) rotate(-8deg);
+}
+.whatsapp-submit i{
+  transition:transform .4s ease;
+}
+.whatsapp-submit:hover i{
+  transform:scale(1.18) rotate(-8deg);
+}
+
+/* ----- GALLERY PREMIUM MOTION ----- */
+.gallery-card{
+  transform:translateY(0);
+  will-change:transform,box-shadow;
+  animation:galleryRise .9s cubic-bezier(.16,1,.3,1) both;
+}
+.gallery-card:nth-child(2){animation-delay:.06s}
+.gallery-card:nth-child(3){animation-delay:.12s}
+.gallery-card:nth-child(4){animation-delay:.18s}
+.gallery-card:nth-child(5){animation-delay:.24s}
+.gallery-card:nth-child(6){animation-delay:.30s}
+.gallery-card:nth-child(7){animation-delay:.36s}
+.gallery-card:nth-child(8){animation-delay:.42s}
+@keyframes galleryRise{
+  from{opacity:0;transform:translateY(28px) scale(.97);filter:blur(5px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+.gallery-card img{
+  transition:
+    transform .9s cubic-bezier(.16,1,.3,1),
+    filter .7s ease;
+}
+.gallery-card:hover img{
+  transform:scale(1.075);
+  filter:saturate(1.08) contrast(1.03);
+}
+.gallery-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  border-radius:inherit;
+  background:linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,.22) 48%,
+    transparent 65%
+  );
+  transform:translateX(-130%);
+  transition:transform 1s cubic-bezier(.16,1,.3,1);
+}
+.gallery-card:hover::before{
+  transform:translateX(130%);
+}
+.gallery-card .caption{
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s ease;
+}
+.gallery-card:hover .caption{
+  transform:translateY(-5px);
+  box-shadow:0 14px 30px rgba(25,42,66,.10);
+}
+
+/* gallery filters get a little premium feedback */
+.gfilter{
+  transition:transform .3s ease,box-shadow .3s ease,background .3s ease;
+}
+.gfilter:hover{
+  transform:translateY(-2px);
+}
+.gfilter.active{
+  box-shadow:0 10px 28px rgba(184,148,80,.16);
+}
+
+/* timeline photos also get a subtle cinematic sweep */
+.timeline-event-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:linear-gradient(
+    115deg,
+    transparent 15%,
+    rgba(255,255,255,.13) 48%,
+    transparent 70%
+  );
+  transform:translateX(-120%);
+  transition:transform 1s cubic-bezier(.16,1,.3,1);
+}
+.timeline-event-card:hover .timeline-event-image::before{
+  transform:translateX(120%);
+}
+
+/* dark theme keeps animations but avoids bright light-theme artifacts */
+body.dark-premium .contact-form-card::after{
+  background:radial-gradient(circle,rgba(200,164,93,.10),transparent 68%);
+}
+
+</style>
 </head>
 
 <body>
@@ -2736,28 +3364,121 @@ body.dark-premium .timeline-event-card{
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact contact-premium" id="contact">
+      <div class="contact-orb contact-orb-a"></div>
+      <div class="contact-orb contact-orb-b"></div>
+
       <div class="container">
         <div class="section-head reveal">
           <div class="section-no">10</div>
-          <div><div class="section-kicker" data-te="సంప్రదింపు" data-en="Connect">సంప్రదింపు</div><h2 class="section-title" data-te="సంప్రదించండి" data-en="Contact">సంప్రదించండి</h2></div>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-card reveal">
-            <h3 data-te="అధికారిక వివరాలు" data-en="Official Details">అధికారిక వివరాలు</h3>
-            <div class="contact-line"><i class="fa-regular fa-user"></i><div><strong>ఆళ్ళ ప్రవీణ్ కుమార్</strong><span data-te="వ్యవస్థాపకులు" data-en="Founder">వ్యవస్థాపకులు</span></div></div>
-            <div class="contact-line"><i class="fa-solid fa-building"></i><div><strong data-te="అబ్దుల్ కలాం సేవా సంఘం" data-en="Abdul Kalam Seva Sangam">అబ్దుల్ కలాం సేవా సంఘం</strong><span data-te="సంస్థ" data-en="Organization">సంస్థ</span></div></div>
-            <div class="contact-line"><i class="fa-solid fa-location-dot"></i><div><strong data-te="అనకాపల్లి" data-en="Anakapalli">అనకాపల్లి</strong><span data-te="ప్రాంతం" data-en="Location">ప్రాంతం</span></div></div>
-            <div class="contact-line"><i class="fa-solid fa-certificate"></i><div><strong>560/2015</strong><span data-te="రిజిస్ట్రేషన్ నెంబర్" data-en="Registration Number">రిజిస్ట్రేషన్ నెంబర్</span></div></div>
-            <div class="contact-line"><i class="fa-solid fa-phone"></i><div><strong class="placeholder-contact" data-te="ఫోన్ నంబర్ — తరువాత జోడించండి" data-en="Phone Number — add later">ఫోన్ నంబర్ — తరువాత జోడించండి</strong></div></div>
-            <div class="contact-line"><i class="fa-solid fa-envelope"></i><div><strong class="placeholder-contact" data-te="ఇమెయిల్ — తరువాత జోడించండి" data-en="Email — add later">ఇమెయిల్ — తరువాత జోడించండి</strong></div></div>
-            <div class="contact-line"><i class="fa-brands fa-instagram"></i><div><strong class="placeholder-contact" data-te="సోషల్ మీడియా — తరువాత జోడించండి" data-en="Social Media — add later">సోషల్ మీడియా — తరువాత జోడించండి</strong></div></div>
+          <div>
+            <div class="section-kicker" data-te="సంప్రదింపు" data-en="Connect">సంప్రదింపు</div>
+            <h2 class="section-title" data-te="మాట్లాడుదాం" data-en="Let's Connect">మాట్లాడుదాం</h2>
+            <p class="section-desc"
+               data-te="ఏదైనా సమాచారం, కార్యక్రమం లేదా సేవకు సంబంధించిన విషయాల కోసం మీ సందేశాన్ని పంపండి."
+               data-en="For information, programs or service-related enquiries, send a message directly.">
+              ఏదైనా సమాచారం, కార్యక్రమం లేదా సేవకు సంబంధించిన విషయాల కోసం మీ సందేశాన్ని పంపండి.
+            </p>
           </div>
-          <div class="contact-note reveal">
-            <div>
-              <div class="eyebrow" data-te="డిజిటల్ లెగసీ" data-en="Digital Legacy">డిజిటల్ లెగసీ</div>
-              <h3 data-te="సేవ, విద్య, క్రీడలు, సంస్కృతి మరియు స్ఫూర్తిని ఒకే వేదికలో భద్రపరచే ప్రయాణం." data-en="A journey preserving service, education, sports, culture and inspiration in one place.">సేవ, విద్య, క్రీడలు, సంస్కృతి మరియు స్ఫూర్తిని ఒకే వేదికలో భద్రపరచే ప్రయాణం.</h3>
+        </div>
+
+        <div class="contact-premium-grid">
+          <div class="contact-card contact-info-premium reveal">
+            <div class="contact-card-top">
+              <span class="contact-eyebrow" data-te="అధికారిక సంప్రదింపు" data-en="Official Contact">అధికారిక సంప్రదింపు</span>
+              <span class="contact-status"><i></i><span data-te="సంప్రదించడానికి సిద్ధంగా ఉన్నారు" data-en="Available to connect">సంప్రదించడానికి సిద్ధంగా ఉన్నారు</span></span>
             </div>
+
+            <h3 data-te="ఆళ్ళ ప్రవీణ్ కుమార్" data-en="AALLA PRAVEEN KUMAR">ఆళ్ళ ప్రవీణ్ కుమార్</h3>
+            <p class="contact-role" data-te="వ్యవస్థాపక చైర్మన్ • అబ్దుల్ కలాం సేవా సంఘం" data-en="Founder Chairman • Abdul Kalam Seva Sangam">
+              వ్యవస్థాపక చైర్మన్ • అబ్దుల్ కలాం సేవా సంఘం
+            </p>
+
+            <div class="contact-detail-list">
+              <a class="contact-action" href="tel:+918121521566">
+                <span class="contact-action-icon"><i class="fa-solid fa-phone"></i></span>
+                <span><small data-te="ఫోన్" data-en="Phone">ఫోన్</small><strong>+91 81215 21566</strong></span>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+              </a>
+
+              <a class="contact-action" href="mailto:allapraveenkumar654@gmail.com">
+                <span class="contact-action-icon"><i class="fa-solid fa-envelope"></i></span>
+                <span><small data-te="ఇమెయిల్" data-en="Email">ఇమెయిల్</small><strong>allapraveenkumar654@gmail.com</strong></span>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+              </a>
+
+              <a class="contact-action whatsapp-action" href="https://wa.me/918121521566" target="_blank" rel="noopener">
+                <span class="contact-action-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                <span><small data-te="వాట్సాప్" data-en="WhatsApp">వాట్సాప్</small><strong data-te="వాట్సాప్‌లో మెసేజ్ చేయండి" data-en="Message on WhatsApp">వాట్సాప్‌లో మెసేజ్ చేయండి</strong></span>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+              </a>
+            </div>
+
+            <div class="contact-meta-row">
+              <span><i class="fa-solid fa-location-dot"></i> <b data-te="అనకాపల్లి" data-en="Anakapalli">అనకాపల్లి</b></span>
+              <span><i class="fa-solid fa-certificate"></i> <b>560/2015</b></span>
+            </div>
+          </div>
+
+          <div class="contact-form-card reveal">
+            <div class="form-heading">
+              <span class="contact-eyebrow" data-te="సందేశం పంపండి" data-en="Send a Message">సందేశం పంపండి</span>
+              <h3 data-te="మీ మాట మాకు ముఖ్యం" data-en="Your message matters">మీ మాట మాకు ముఖ్యం</h3>
+              <p data-te="క్రింది ఫారమ్‌లో వివరాలు ఇచ్చి Send Message నొక్కండి. మీ డిఫాల్ట్ ఇమెయిల్ యాప్ ద్వారా సందేశం పంపబడుతుంది."
+                 data-en="Fill in the form and press Send Message. Your default email app will open with the message ready to send.">
+                క్రింది ఫారమ్‌లో వివరాలు ఇచ్చి Send Message నొక్కండి. మీ డిఫాల్ట్ ఇమెయిల్ యాప్ ద్వారా సందేశం పంపబడుతుంది.
+              </p>
+            </div>
+
+            <form id="premiumContactForm" class="premium-contact-form">
+              <div class="form-row">
+                <label>
+                  <span data-te="మీ పేరు" data-en="Your Name">మీ పేరు</span>
+                  <input id="contactName" type="text" required autocomplete="name"
+                         placeholder="మీ పేరు / Your name">
+                </label>
+                <label>
+                  <span data-te="మీ ఇమెయిల్" data-en="Your Email">మీ ఇమెయిల్</span>
+                  <input id="contactEmail" type="email" required autocomplete="email"
+                         placeholder="you@example.com">
+                </label>
+              </div>
+
+              <label>
+                <span data-te="విషయం" data-en="Subject">విషయం</span>
+                <input id="contactSubject" type="text" required
+                       placeholder="మీ సందేశం విషయం / Subject">
+              </label>
+
+              <label>
+                <span data-te="మీ సందేశం" data-en="Your Message">మీ సందేశం</span>
+                <textarea id="contactMessage" rows="5" required
+                          placeholder="మీ సందేశాన్ని ఇక్కడ రాయండి..."></textarea>
+              </label>
+
+              <div class="form-actions">
+                <button class="btn btn-primary contact-submit" type="submit">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span data-te="మెసేజ్ పంపండి" data-en="Send Message">మెసేజ్ పంపండి</span>
+                </button>
+                <a class="btn whatsapp-submit" href="https://wa.me/918121521566" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span data-te="వాట్సాప్" data-en="WhatsApp">వాట్సాప్</span>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="contact-bottom-note reveal">
+          <div class="contact-note-mark"><i class="fa-solid fa-heart"></i></div>
+          <div>
+            <strong data-te="సేవ, విద్య, క్రీడలు, సంస్కృతి మరియు స్ఫూర్తి" data-en="Service, education, sports, culture and inspiration">
+              సేవ, విద్య, క్రీడలు, సంస్కృతి మరియు స్ఫూర్తి
+            </strong>
+            <span data-te="ఒక మంచి సమాజం కోసం కలిసి ముందుకు సాగుదాం." data-en="Together, let's move forward for a better society.">
+              ఒక మంచి సమాజం కోసం కలిసి ముందుకు సాగుదాం.
+            </span>
           </div>
         </div>
       </div>
@@ -2859,9 +3580,25 @@ body.dark-premium .timeline-event-card{
 
           <div class="timeline-year-events">
             ${grouped[year].map(x=>`
-              <article class="timeline-event-card">
+              <article class="timeline-event-card"
+                data-timeline-image="${x.image}"
+                data-timeline-title-te="${x.personTe}"
+                data-timeline-title-en="${x.personEn}"
+                data-timeline-date-te="${x.dateTe}"
+                data-timeline-date-en="${x.dateEn}"
+                data-timeline-location-te="${x.locationTe}"
+                data-timeline-location-en="${x.locationEn}"
+                data-timeline-activity-te="${x.activityTe}"
+                data-timeline-activity-en="${x.activityEn}"
+                tabindex="0"
+                role="button"
+                aria-label="${currentLang==="te"?"ఫోటో చూడటానికి క్లిక్ చేయండి":"Click to view photo"}">
 
                 <div class="timeline-event-image">
+                  <div class="timeline-view-hint">
+                    <i class="fa-regular fa-image"></i>
+                    <span data-te="ఫోటో చూడటానికి క్లిక్ చేయండి" data-en="Click to view photo">ఫోటో చూడటానికి క్లిక్ చేయండి</span>
+                  </div>
                   <img
                     src="${x.image}"
                     alt="${currentLang==="te"?x.personTe:x.personEn}"
@@ -3019,7 +3756,7 @@ body.dark-premium .timeline-event-card{
     }
 
     function closeGalleryLightbox(){
-      lightbox.classList.remove("open");
+      lightbox.classList.remove("open","timeline-mode");
       lightbox.setAttribute("aria-hidden","true");
       document.body.style.overflow="";
       lightImage.src="";
@@ -3046,6 +3783,60 @@ body.dark-premium .timeline-event-card{
         if(index!==-1)openGalleryLightbox(index);
       });
     });
+
+    /* =========================================================
+       TIMELINE -> FULL SCREEN CINEMATIC PHOTO VIEWER
+    ========================================================= */
+    const timelineList = document.getElementById("timelineList");
+
+    function openTimelineLightbox(card){
+      if(!card) return;
+      const imageSrc = card.dataset.timelineImage;
+      if(!imageSrc) return;
+
+      lightbox.classList.add("timeline-mode");
+      lightImage.src = imageSrc;
+      lightImage.alt = currentLang==="te"
+        ? (card.dataset.timelineTitleTe || "Timeline Photo")
+        : (card.dataset.timelineTitleEn || "Timeline Photo");
+
+      lightTitle.textContent = currentLang==="te"
+        ? (card.dataset.timelineTitleTe || "")
+        : (card.dataset.timelineTitleEn || "");
+
+      lightDesc.textContent = currentLang==="te"
+        ? `${card.dataset.timelineDateTe || ""} • స్థలం: ${card.dataset.timelineLocationTe || ""} • కార్యక్రమం: ${card.dataset.timelineActivityTe || ""}`
+        : `${card.dataset.timelineDateEn || ""} • Location: ${card.dataset.timelineLocationEn || ""} • Activity: ${card.dataset.timelineActivityEn || ""}`;
+
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+    }
+
+    if(timelineList){
+      timelineList.addEventListener("click",e=>{
+        const card=e.target.closest(".timeline-event-card");
+        if(!card)return;
+        card.classList.add("selected","revealed");
+        openTimelineLightbox(card);
+      });
+
+      timelineList.addEventListener("keydown",e=>{
+        const card=e.target.closest(".timeline-event-card");
+        if(!card)return;
+        if(e.key==="Enter" || e.key===" "){
+          e.preventDefault();
+          card.classList.add("selected","revealed");
+          openTimelineLightbox(card);
+        }
+      });
+    }
+
+    const originalOpenGalleryLightbox = openGalleryLightbox;
+    openGalleryLightbox = function(index){
+      lightbox.classList.remove("timeline-mode");
+      originalOpenGalleryLightbox(index);
+    };
 
     closeLightbox.addEventListener("click",closeGalleryLightbox);
     lightboxPrev.addEventListener("click",showPreviousGalleryImage);
@@ -3489,6 +4280,56 @@ body.dark-premium .timeline-event-card{
     }
   });
 
+})();
+</script>
+
+
+<script>
+(function(){
+  const form = document.getElementById("premiumContactForm");
+  if(!form) return;
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim();
+    const message = document.getElementById("contactMessage").value.trim();
+
+    const body =
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n\n" +
+      "Message:\n" + message;
+
+    const mailto =
+      "mailto:allapraveenkumar654@gmail.com" +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    window.location.href = mailto;
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  const form = document.getElementById("premiumContactForm");
+  const submit = form ? form.querySelector(".contact-submit") : null;
+  if(!form || !submit) return;
+
+  form.addEventListener("submit", function(){
+    submit.classList.add("sending");
+    const original = submit.innerHTML;
+    submit.innerHTML =
+      '<i class="fa-solid fa-spinner fa-spin"></i><span>Opening email…</span>';
+
+    setTimeout(()=>{
+      submit.classList.remove("sending");
+      submit.innerHTML = original;
+    }, 2200);
+  });
 })();
 </script>
 
