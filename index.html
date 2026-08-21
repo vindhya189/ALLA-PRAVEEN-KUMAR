@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&family=Noto+Serif+Telugu:wght@500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Serif+Telugu:wght@500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
@@ -2568,6 +2568,103 @@ img{display:block;max-width:100%;height:auto}
 }
 
 </style>
+
+<style id="fast-mobile-premium">
+/* =========================================================
+   FAST + MOBILE PREMIUM OVERRIDES
+   Keeps the existing design but reduces mobile rendering cost.
+========================================================= */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+img{max-width:100%;height:auto}
+.premium-ambient span{animation:none!important;filter:blur(35px)!important;opacity:.12!important}
+body::after{animation:none!important;filter:blur(25px)!important}
+section:not(.hero)::before{animation:none!important;filter:blur(40px)!important}
+.cursor-glow{display:none!important}
+.page-transition{backdrop-filter:blur(8px)!important}
+.gallery-card,.timeline-event-card,.feature-card,.card{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.gallery-card::before,.gallery-card::after,.gallery-card:hover::before{display:none!important}
+.gallery-card:hover{transform:translateY(-4px) scale(1.005)!important}
+.gallery-card img{will-change:auto!important}
+.timeline-event-card{will-change:auto!important}
+.timeline-event-card::before{display:none!important}
+@media (max-width:900px){
+  section{padding:64px 16px!important}
+  .container{width:100%!important}
+  .section-head{display:block!important;margin-bottom:28px!important}
+  .section-no{margin-bottom:8px!important}
+  .section-title{font-size:clamp(1.85rem,8.5vw,2.7rem)!important;line-height:1.2!important}
+  .section-desc{font-size:.82rem!important;line-height:1.7!important}
+  .navbar{height:68px!important;padding:10px 14px!important}
+  .nav-wrap{width:100%!important;gap:8px!important}
+  .brand{min-width:0!important;flex:1!important}
+  .brand-symbol{width:40px!important;height:40px!important}
+  .brand strong{font-size:.78rem!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  .brand small{font-size:.56rem!important}
+  .nav-links{
+    display:none!important;position:fixed!important;top:76px!important;left:10px!important;right:10px!important;
+    width:auto!important;max-height:calc(100svh - 90px)!important;overflow:auto!important;
+    flex-direction:column!important;align-items:stretch!important;gap:4px!important;padding:12px!important;
+    border-radius:22px!important;background:rgba(255,255,255,.98)!important;
+    border:1px solid rgba(17,31,48,.10)!important;box-shadow:0 20px 60px rgba(10,20,35,.18)!important;
+    backdrop-filter:blur(12px)!important;z-index:99999!important
+  }
+  .navbar.menu-open .nav-links{display:flex!important}
+  .nav-links a{min-height:46px!important;padding:11px 14px!important;color:#172234!important;border-radius:13px!important}
+  .menu-btn{display:grid!important;place-items:center!important;width:42px!important;height:42px!important}
+  body.dark-premium .nav-links{background:rgba(9,16,27,.98)!important}
+  body.dark-premium .nav-links a{color:#f0f3f7!important}
+  .lang{margin-left:auto!important}
+  .hero{min-height:100svh!important}
+  .hero-inner{width:100%!important;padding:110px 18px 70px!important}
+  .hero h1{font-size:clamp(2.25rem,12vw,4rem)!important;line-height:1.12!important}
+  .hero-sub{font-size:.86rem!important;line-height:1.7!important}
+  .hero-actions{display:grid!important;grid-template-columns:1fr!important;width:100%!important}
+  .hero-actions .btn{width:100%!important}
+  .hero-meta,.scroll-cue{display:none!important}
+  .split,.mv-grid,.award-layout,.contact-premium-grid{grid-template-columns:1fr!important;gap:18px!important}
+  .org-grid,.ach-grid,.service-grid,.horizontal{grid-template-columns:1fr!important}
+  .portrait{min-height:390px!important}
+  .founder-photo{height:390px!important}
+  .filters,.gallery-filter{
+    display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;padding-bottom:8px!important
+  }
+  .filters::-webkit-scrollbar,.gallery-filter::-webkit-scrollbar{display:none!important}
+  .filter,.gfilter{flex:0 0 auto!important;white-space:nowrap!important}
+  .timeline-year-events{grid-template-columns:1fr!important;gap:14px!important}
+  .timeline-event-card{
+    min-height:0!important;opacity:1!important;filter:none!important;transform:none!important;
+    padding:10px!important;transition:box-shadow .25s ease,border-color .25s ease!important
+  }
+  .timeline-event-image{height:220px!important}
+  .timeline-event-card:hover{transform:none!important}
+  .gallery-grid{columns:2 145px!important;column-gap:9px!important}
+  .gallery-card{margin-bottom:9px!important;border-radius:16px!important}
+  .gallery-card img{height:220px!important}
+  .gallery-card.tall img{height:285px!important}
+  .gallery-card.wide img{height:235px!important}
+  .gallery-click-hint{opacity:1!important;transform:none!important}
+  .form-row{grid-template-columns:1fr!important}
+  .form-actions{grid-template-columns:1fr!important}
+  .lightbox-box{width:calc(100vw - 16px)!important;max-height:calc(100svh - 16px)!important;overflow:auto!important}
+  .lightbox-visual{height:58svh!important;min-height:270px!important}
+  .lightbox-visual img{max-width:96%!important;max-height:94%!important}
+}
+@media(max-width:560px){
+  .gallery-grid{columns:1!important}
+  .gallery-card img,.gallery-card.tall img,.gallery-card.wide img{
+    height:auto!important;min-height:240px!important;aspect-ratio:4/3!important;object-fit:cover!important
+  }
+  .gallery-card.tall img{aspect-ratio:4/5!important}
+  .gallery-card.wide img{aspect-ratio:16/10!important}
+  .timeline-event-image{height:205px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+</style>
+
 </head>
 
 <body>
@@ -2595,7 +2692,7 @@ img{display:block;max-width:100%;height:auto}
         <img
           class="founder-intro-photo"
           src="public/images/founder.jpg"
-          alt="ALLA PRAVEEN KUMAR">
+          alt="ALLA PRAVEEN KUMAR" decoding="async">
       </div>
 
       <div
@@ -2721,8 +2818,7 @@ img{display:block;max-width:100%;height:auto}
         <img
           src="public/images/founder.jpg"
           alt="ఆళ్ళ ప్రవీణ్ కుమార్ - AALLA PRAVEEN KUMAR"
-          class="founder-photo"
-        >
+          class="founder-photo" decoding="async">
 
         <div class="caption">
           <small
@@ -2977,8 +3073,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/kuchipudi-01.jpg"
-          alt="కూచిపూడి కాంపిటీషన్ 01"
-          >
+          alt="కూచిపూడి కాంపిటీషన్ 01" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>01</small>
@@ -3005,8 +3100,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/kuchipudi-02.jpg"
-          alt="కూచిపూడి కాంపిటీషన్ 02"
-          >
+          alt="కూచిపూడి కాంపిటీషన్ 02" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>02</small>
@@ -3033,8 +3127,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/kuchipudi-03.jpg"
-          alt="కూచిపూడి కాంపిటీషన్ 03"
-          >
+          alt="కూచిపూడి కాంపిటీషన్ 03" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>03</small>
@@ -3061,8 +3154,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/kuchipudi-04.jpg"
-          alt="కూచిపూడి కాంపిటీషన్ 04"
-          >
+          alt="కూచిపూడి కాంపిటీషన్ 04" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>04</small>
@@ -3089,8 +3181,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/kuchipudi-05.jpg"
-          alt="కూచిపూడి కాంపిటీషన్ 05"
-          >
+          alt="కూచిపూడి కాంపిటీషన్ 05" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>05</small>
@@ -3121,8 +3212,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/singing-01.jpg"
-          alt="సింగింగ్ కాంపిటీషన్ 01"
-         >
+          alt="సింగింగ్ కాంపిటీషన్ 01" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>06</small>
@@ -3149,8 +3239,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/singing-02.jpg"
-          alt="సింగింగ్ కాంపిటీషన్ 02"
-         >
+          alt="సింగింగ్ కాంపిటీషన్ 02" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>07</small>
@@ -3177,8 +3266,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/singing-03.jpg"
-          alt="సింగింగ్ కాంపిటీషన్ 03"
-         >
+          alt="సింగింగ్ కాంపిటీషన్ 03" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>08</small>
@@ -3205,8 +3293,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/singing-04.jpg"
-          alt="సింగింగ్ కాంపిటీషన్ 04"
-         >
+          alt="సింగింగ్ కాంపిటీషన్ 04" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>09</small>
@@ -3233,8 +3320,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/singing-05.jpg"
-          alt="సింగింగ్ కాంపిటీషన్ 05"
-         >
+          alt="సింగింగ్ కాంపిటీషన్ 05" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>10</small>
@@ -3265,8 +3351,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/bodybuilding-01.jpg"
-          alt="బాడీ బిల్డింగ్ 01"
-         >
+          alt="బాడీ బిల్డింగ్ 01" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>11</small>
@@ -3293,8 +3378,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/bodybuilding-02.jpg"
-          alt="బాడీ బిల్డింగ్ 02"
-         >
+          alt="బాడీ బిల్డింగ్ 02" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>12</small>
@@ -3321,8 +3405,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/bodybuilding-03.jpg"
-          alt="బాడీ బిల్డింగ్ 03"
-         >
+          alt="బాడీ బిల్డింగ్ 03" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>13</small>
@@ -3349,8 +3432,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/bodybuilding-04.jpg"
-          alt="బాడీ బిల్డింగ్ 04"
-         >
+          alt="బాడీ బిల్డింగ్ 04" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>14</small>
@@ -3377,8 +3459,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/bodybuilding-05.jpg"
-          alt="బాడీ బిల్డింగ్ 05"
-         >
+          alt="బాడీ బిల్డింగ్ 05" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>15</small>
@@ -3409,8 +3490,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/statue-01.jpg"
-          alt="విగ్రహాల కార్యక్రమాలు 01"
-         >
+          alt="విగ్రహాల కార్యక్రమాలు 01" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>16</small>
@@ -3437,8 +3517,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/statue-02.jpg"
-          alt="విగ్రహాల కార్యక్రమాలు 02"
-         >
+          alt="విగ్రహాల కార్యక్రమాలు 02" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>17</small>
@@ -3465,8 +3544,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/statue-03.jpg"
-          alt="విగ్రహాల కార్యక్రమాలు 03"
-         >
+          alt="విగ్రహాల కార్యక్రమాలు 03" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>18</small>
@@ -3493,8 +3571,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/statue-04.jpg"
-          alt="విగ్రహాల కార్యక్రమాలు 04"
-         >
+          alt="విగ్రహాల కార్యక్రమాలు 04" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>19</small>
@@ -3521,8 +3598,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/statue-05.jpg"
-          alt="విగ్రహాల కార్యక్రమాలు 05"
-         >
+          alt="విగ్రహాల కార్యక్రమాలు 05" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>20</small>
@@ -3553,8 +3629,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/service-01.jpg"
-          alt="సేవా కార్యక్రమాలు 01"
-         >
+          alt="సేవా కార్యక్రమాలు 01" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>21</small>
@@ -3581,8 +3656,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/service-02.jpg"
-          alt="సేవా కార్యక్రమాలు 02"
-         >
+          alt="సేవా కార్యక్రమాలు 02" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>22</small>
@@ -3609,8 +3683,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/service-03.jpg"
-          alt="సేవా కార్యక్రమాలు 03"
-         >
+          alt="సేవా కార్యక్రమాలు 03" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>23</small>
@@ -3637,8 +3710,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/service-04.jpg"
-          alt="సేవా కార్యక్రమాలు 04"
-         >
+          alt="సేవా కార్యక్రమాలు 04" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>24</small>
@@ -3665,8 +3737,7 @@ img{display:block;max-width:100%;height:auto}
 
         <img
           src="public/images/gallery/service-05.jpg"
-          alt="సేవా కార్యక్రమాలు 05"
-         >
+          alt="సేవా కార్యక్రమాలు 05" loading="lazy" decoding="async">
 
         <div class="gallery-overlay">
           <small>25</small>
@@ -3855,7 +3926,7 @@ img{display:block;max-width:100%;height:auto}
     <button class="close-lightbox" id="closeLightbox" type="button" aria-label="Close image"><i class="fa-solid fa-xmark"></i></button>
     <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
     <div class="lightbox-box">
-      <div class="lightbox-visual"><img id="lightImage" src="" alt="Gallery Photo"></div>
+      <div class="lightbox-visual"><img id="lightImage" src="" alt="Gallery Photo" loading="lazy" decoding="async"></div>
       <div class="lightbox-info"><h3 id="lightTitle"></h3><p id="lightDesc"></p></div>
     </div>
     <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
@@ -3940,8 +4011,7 @@ img{display:block;max-width:100%;height:auto}
                   <img
                     src="${x.image}"
                     alt="${currentLang==="te"?x.personTe:x.personEn}"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
-                  >
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" loading="lazy" decoding="async">
                   <div class="timeline-image-placeholder" style="display:none;">
                     <i class="fa-regular fa-image"></i>
                   </div>
