@@ -197,6 +197,12 @@
         <button data-lang="en">English</button>
       </div>
 
+      <button class="theme-toggle" id="themeToggle" type="button"
+        aria-label="Switch to light mode" aria-pressed="false" title="Switch theme">
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+        <span data-te="లైట్ మోడ్" data-en="Light mode">లైట్ మోడ్</span>
+      </button>
+
       <button class="menu-btn" id="menuBtn" aria-label="Menu">
         <i class="fa-solid fa-bars"></i>
       </button>
@@ -563,7 +569,7 @@
           <!-- 2015 ABDUL KALAM -->
           <article class="timeline-event-card">
             <div class="timeline-event-image">
-              <img src="public/images/timeline/2015-abdul-kalam.JPG"
+              <img src="public/images/timeline/2015-abdul-kalam.JPEG"
                 alt="అబ్దుల్ కలాం కార్యక్రమం 2015" loading="lazy">
             </div>
             <div class="timeline-event-content">
@@ -576,7 +582,7 @@
           <!-- 2019 ABDUL KALAM -->
           <article class="timeline-event-card">
             <div class="timeline-event-image">
-              <img src="public/images/timeline/2019-abdul-kalam.JPG"
+              <img src="public/images/timeline/2019-abdul-kalam.JPEG"
                 alt="అబ్దుల్ కలాం కార్యక్రమం 2019" loading="lazy">
             </div>
             <div class="timeline-event-content">
@@ -1011,7 +1017,7 @@
           <!-- SINGING COMPETITION PHOTO 1 -->
           <article class="gallery-card wide" data-cat="culture">
             <button class="gallery-image-button" type="button"
-              data-full="public/images/gallery/spb-singing-competition-2023-01.jpg"
+              data-full="public/images/gallery/singing-01.jpg"
               data-caption="ఎస్.పి. బాలసుబ్రహ్మణ్యం గారి జ్ఞాపకార్థం పాటల పోటీలు">
               <img src="public/images/gallery/singing-01.jpg"
                 alt="ఎస్.పి. బాలసుబ్రహ్మణ్యం పాటల పోటీలు 2023" loading="lazy">
@@ -1031,7 +1037,7 @@
           <!-- SINGING PHOTOS 2–5 -->
           <article class="gallery-card" data-cat="culture">
             <button class="gallery-image-button" type="button"
-              data-full="public/images/gallery/spb-singing-competition-2023-02.jpg"
+              data-full="public/images/gallery/singing-02.jpg"
               data-caption="పాటల పోటీలు — ఫోటో 2">
               <img src="public/images/gallery/singing-02.jpg"
                 alt="పాటల పోటీలు ఫోటో 2" loading="lazy">
@@ -1042,7 +1048,7 @@
 
           <article class="gallery-card" data-cat="culture">
             <button class="gallery-image-button" type="button"
-              data-full="public/images/gallery/spb-singing-competition-2023-03.jpg"
+              data-full="public/images/gallery/singing-03.jpg"
               data-caption="పాటల పోటీలు — ఫోటో 3">
               <img src="public/images/gallery/singing-03.jpg"
                 alt="పాటల పోటీలు ఫోటో 3" loading="lazy">
@@ -1053,7 +1059,7 @@
 
           <article class="gallery-card" data-cat="culture">
             <button class="gallery-image-button" type="button"
-              data-full="public/images/gallery/spb-singing-competition-2023-04.jpg"
+              data-full="public/images/gallery/singing-04.jpg"
               data-caption="పాటల పోటీలు — ఫోటో 4">
               <img src="public/images/gallery/singing-04.jpg"
                 alt="పాటల పోటీలు ఫోటో 4" loading="lazy">
@@ -1064,7 +1070,7 @@
 
           <article class="gallery-card" data-cat="culture">
             <button class="gallery-image-button" type="button"
-              data-full="public/images/gallery/spb-singing-competition-2023-05.jpg"
+              data-full="public/images/gallery/singing-05.jpg"
               data-caption="బహుమతి ప్రదానోత్సవం — ఫోటో 5">
               <img src="public/images/gallery/singing-05.jpg"
                 alt="బహుమతి ప్రదానోత్సవం ఫోటో 5" loading="lazy">
@@ -1584,7 +1590,7 @@
           <div class="gallery-grid">
             <article class="gallery-card" data-cat="statue">
               <button class="gallery-image-button" type="button"
-                data-full="public/images/timeline/2015-abdul-kalam.JPG"
+                data-full="public/images/timeline/2015-abdul-kalam.JPeG"
                 data-caption="Abdul Kalam Statue 1">
                 <img src="public/images/timeline/2015-abdul-kalam.JPG"
                   alt="అబ్దుల్ కలాం విగ్రహం 1" loading="lazy">
@@ -1595,7 +1601,7 @@
 
             <article class="gallery-card" data-cat="statue">
               <button class="gallery-image-button" type="button"
-                data-full="public/images/timeline/2019-abdul-kalam.JPG"
+                data-full="public/images/timeline/2019-abdul-kalam.JPeG"
                 data-caption="Abdul Kalam Statue 2">
                 <img src="public/images/timeline/2019-abdul-kalam.JPG"
                   alt="అబ్దుల్ కలాం విగ్రహం 2" loading="lazy">
@@ -1663,8 +1669,36 @@
               </div>
             </div>
 
+            <div class="contact-actions" aria-label="Contact options">
+              <a
+                class="contact-action contact-action-whatsapp"
+                href="https://wa.me/918121521566"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp 8121521566">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span>WhatsApp</span>
+              </a>
+
+              <a
+                class="contact-action"
+                href="tel:+918121521566"
+                aria-label="Call 8121521566">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <span>Call Now</span>
+              </a>
+
+              <a
+                class="contact-action"
+                href="mailto:allapraveenkumar654@gmail.com"
+                aria-label="Email Abdul Kalam Seva Sangam">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>Email</span>
+              </a>
+            </div>
+
             <p class="contact-note">
-              8121521566, email:allapraveenkumar654@gmail.com
+              Contact form submit చేస్తే WhatsApp chat తెరుచుకుంటుంది. మీ వివరాలు చూసి WhatsAppలో Send నొక్కండి.
             </p>
 
           </div>
@@ -1692,6 +1726,17 @@
             </div>
 
             <div class="form-group">
+              <label for="visitorPhone">ఫోన్ నంబర్ (ఐచ్చికం)</label>
+              <input
+                id="visitorPhone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                placeholder="మీ ఫోన్ నంబర్">
+            </div>
+
+            <div class="form-group">
               <label for="visitorMessage">మీ సందేశం</label>
               <textarea
                 id="visitorMessage"
@@ -1702,13 +1747,14 @@
             </div>
 
             <button type="submit" class="btn btn-primary">
-              <i class="fa-solid fa-paper-plane"></i>
-              సందేశం పంపండి
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              WhatsApp ద్వారా సందేశం పంపండి
             </button>
 
             <p
               id="contactFormStatus"
               class="form-status"
+              role="status"
               aria-live="polite"></p>
 
           </form>

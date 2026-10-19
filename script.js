@@ -1,7 +1,6 @@
-
 /* ==========================================
    ABDUL KALAM SEVA SANGAM
-   Complete JavaScript
+   Complete JavaScript + Dark/Light Mode
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,7 +11,87 @@ document.addEventListener("DOMContentLoaded", function () {
     Array.from(parent.querySelectorAll(selector));
 
   // ==========================================
-  // 1. ENTER WEBSITE / FOUNDER INTRO
+  // 1. THEME SWITCH: DARK / LIGHT MODE
+  // ==========================================
+
+  const themeToggle = $("#themeToggle");
+  const themeIcon = themeToggle ? $("i", themeToggle) : null;
+  const themeLabel = themeToggle ? $("span", themeToggle) : null;
+
+  function applyTheme(theme) {
+    const isLight = theme === "light";
+    const currentTheme = isLight ? "light" : "dark";
+
+    document.body.dataset.theme = currentTheme;
+    document.documentElement.dataset.theme = currentTheme;
+    document.documentElement.style.colorScheme = currentTheme;
+
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+      themeToggle.setAttribute(
+        "aria-label",
+        isLight ? "Switch to dark mode" : "Switch to light mode"
+      );
+      themeToggle.setAttribute(
+        "title",
+        isLight ? "Switch to dark mode" : "Switch to light mode"
+      );
+    }
+
+    if (themeIcon) {
+      themeIcon.className = isLight
+        ? "fa-solid fa-moon"
+        : "fa-solid fa-sun";
+    }
+
+    if (themeLabel) {
+      const language =
+        document.documentElement.lang === "en" ? "en" : "te";
+
+      themeLabel.textContent = isLight
+        ? language === "en"
+          ? "Dark mode"
+          : "డార్క్ మోడ్"
+        : language === "en"
+        ? "Light mode"
+        : "లైట్ మోడ్";
+
+      themeLabel.dataset.te = isLight
+        ? "డార్క్ మోడ్"
+        : "లైట్ మోడ్";
+
+      themeLabel.dataset.en = isLight
+        ? "Dark mode"
+        : "Light mode";
+    }
+
+    try {
+      localStorage.setItem("siteTheme", currentTheme);
+    } catch (error) {
+      // Theme still works if browser storage is unavailable.
+    }
+  }
+
+  let savedTheme = "dark";
+
+  try {
+    savedTheme = localStorage.getItem("siteTheme") || "dark";
+  } catch (error) {
+    savedTheme = "dark";
+  }
+
+  applyTheme(savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      const currentTheme = document.documentElement.dataset.theme;
+
+      applyTheme(currentTheme === "light" ? "dark" : "light");
+    });
+  }
+
+  // ==========================================
+  // 2. ENTER WEBSITE / FOUNDER INTRO
   // ==========================================
 
   const founderIntro = $("#founderIntro");
@@ -37,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
       loader.classList.add("loaded");
     }
 
-    // Ensure the page is ready to scroll.
     document.body.style.overflow = "";
     document.documentElement.style.overflow = "";
   }
@@ -55,22 +133,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Automatically enter if the visitor doesn't click.
   const introTimer = window.setTimeout(enterWebsite, 6500);
 
   if (enterButton) {
-    enterButton.addEventListener("click", function () {
-      window.clearTimeout(introTimer);
-    }, { once: true });
-  }
+    enterButton.addEventListener(
+      "click",
+      function () {
+        window.clearTimeout(introTimer);
+      },
+      { once: true }
+    );
 
-  // Also allow Enter or Space when the intro button is focused.
-  if (enterButton) {
     enterButton.setAttribute("aria-label", "Enter website");
   }
 
   // ==========================================
-  // 2. LOADING SCREEN
+  // 3. LOADING SCREEN
   // ==========================================
 
   function hideLoader() {
@@ -81,11 +159,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("load", hideLoader);
 
-  // Avoid leaving the loader visible if an image loads slowly.
   window.setTimeout(hideLoader, 5000);
 
   // ==========================================
-  // 3. CURRENT YEAR
+  // 4. CURRENT YEAR
   // ==========================================
 
   const currentYear = $("#currentYear");
@@ -95,8 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 4. MOBILE NAVIGATION
-  // Actual HTML: #menuBtn and #navLinks
+  // 5. MOBILE NAVIGATION
   // ==========================================
 
   const menuButton = $("#menuBtn");
@@ -139,13 +215,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 5. SMOOTH SCROLL FOR ALL SECTION LINKS
+  // 6. SMOOTH SCROLL FOR ALL SECTION LINKS
   // ==========================================
 
   function scrollToSection(target) {
     if (!target) return;
 
     const navbar = $("#navbar");
+
     const navbarHeight = navbar
       ? navbar.getBoundingClientRect().height
       : 0;
@@ -174,13 +251,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       event.preventDefault();
 
-      // Close the intro if the visitor uses a section link.
       enterWebsite();
       closeMobileMenu();
 
       scrollToSection(target);
 
-      // Update the URL hash without causing a second jump.
       if (history.replaceState) {
         history.replaceState(null, "", href);
       }
@@ -188,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ==========================================
-  // 6. LANGUAGE SWITCH: TELUGU / ENGLISH
+  // 7. LANGUAGE SWITCH: TELUGU / ENGLISH
   // ==========================================
 
   const languageButtons = $$("[data-lang]");
@@ -211,10 +286,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.documentElement.lang = language === "te" ? "te" : "en";
 
+    // Update theme button text in the selected language.
+    if (themeLabel) {
+      const isLight =
+        document.documentElement.dataset.theme === "light";
+
+      themeLabel.textContent = isLight
+        ? language === "en"
+          ? "Dark mode"
+          : "డార్క్ మోడ్"
+        : language === "en"
+        ? "Light mode"
+        : "లైట్ మోడ్";
+
+      themeLabel.dataset.te = isLight
+        ? "డార్క్ మోడ్"
+        : "లైట్ మోడ్";
+
+      themeLabel.dataset.en = isLight
+        ? "Dark mode"
+        : "Light mode";
+    }
+
     try {
       localStorage.setItem("siteLanguage", language);
     } catch (error) {
-      // The site still works if browser storage is unavailable.
+      // The website continues to work without local storage.
     }
   }
 
@@ -235,8 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setLanguage(savedLanguage);
 
   // ==========================================
-  // 7. GALLERY FILTERS
-  // Actual HTML: .gfilter and [data-cat]
+  // 8. GALLERY FILTERS
   // ==========================================
 
   const galleryFilterButtons = $$(".gfilter");
@@ -269,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ==========================================
-  // 8. FULL-SCREEN PHOTO LIGHTBOX
+  // 9. FULL-SCREEN PHOTO LIGHTBOX
   // ==========================================
 
   const lightbox = $("#photoLightbox");
@@ -430,7 +526,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ==========================================
-  // 9. NAVBAR SCROLL EFFECT
+  // 10. NAVBAR SCROLL EFFECT
   // ==========================================
 
   const navbar = $("#navbar");
@@ -442,7 +538,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 10. SCROLL PROGRESS BAR
+  // 11. SCROLL PROGRESS BAR
   // ==========================================
 
   const progressBar = $("#progress");
@@ -478,7 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateScrollEffects();
 
   // ==========================================
-  // 11. BACK TO TOP
+  // 12. BACK TO TOP
   // ==========================================
 
   const backToTop = $("#backToTop");
@@ -493,7 +589,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 12. ACTIVE NAVIGATION LINK
+  // 13. ACTIVE NAVIGATION LINK
   // ==========================================
 
   const sections = $$("main section[id]");
@@ -524,14 +620,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  
   // ==========================================
-  // 13. CONTACT FORM DEMO
+  // 14. CONTACT FORM - WHATSAPP INTEGRATION
   // ==========================================
 
-  const contactForm = $("#contactForm");
-  const formStatus = $("#contactFormStatus");
+  const contactForm = document.querySelector("#contactForm");
+  const formStatus = document.querySelector("#contactFormStatus");
 
-  if (contactForm && formStatus) {
+  if (contactForm) {
     contactForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
@@ -540,13 +637,53 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      formStatus.textContent =
-        "ఇది demo form మాత్రమే. సందేశాలు స్వీకరించడానికి email service లేదా backend కనెక్ట్ చేయాలి.";
+      const name = document.querySelector("#visitorName")?.value.trim();
+      const email = document.querySelector("#visitorEmail")?.value.trim();
+      const message = document.querySelector("#visitorMessage")?.value.trim();
+
+      if (!name || !email || !message) {
+        if (formStatus) {
+          formStatus.textContent = "దయచేసి అన్ని వివరాలు నమోదు చేయండి.";
+        }
+        return;
+      }
+
+      // Your WhatsApp number with India country code
+      const whatsappNumber = "918121521566";
+
+      // Prepare the visitor's message
+      const whatsappMessage =
+        "New Contact Form Message - Abdul Kalam Seva Sangam\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Message: " + message;
+
+      const whatsappURL =
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(whatsappMessage);
+
+      if (formStatus) {
+        formStatus.textContent =
+          "WhatsApp తెరుచుకుంటోంది. సందేశాన్ని పంపడానికి Send నొక్కండి.";
+      }
+
+      // Open WhatsApp with the pre-filled message
+      const whatsappWindow = window.open(
+        whatsappURL,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+      // Fallback if the browser blocks the new window
+      if (!whatsappWindow) {
+        window.location.href = whatsappURL;
+      }
     });
   }
 
+
   // ==========================================
-  // 14. CUSTOM CURSOR EFFECT
+  // 15. CUSTOM CURSOR EFFECT
   // ==========================================
 
   const cursor = $("#cursor");
@@ -570,7 +707,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 15. IMAGE ERROR HANDLING
+  // 16. IMAGE ERROR HANDLING
   // ==========================================
 
   $$("img").forEach(function (image) {
